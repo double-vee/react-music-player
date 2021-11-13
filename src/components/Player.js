@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faAngleLeft,
@@ -5,7 +6,9 @@ import {
   faPlay,
 } from "@fortawesome/free-solid-svg-icons";
 
-const Player = () => {
+const Player = ({ currentTrack }) => {
+  const audioRef = useRef(null);
+
   return (
     <div className="player">
       <div className="time-control">
@@ -22,6 +25,7 @@ const Player = () => {
           size="2x"
         />
       </div>
+      <audio ref={audioRef} src={currentTrack.audio}></audio>
     </div>
   );
 };

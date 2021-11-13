@@ -11,7 +11,7 @@ function App() {
   return (
     <div className="app-wrapper">
       <Track currentTrack={currentTrack} />
-      <Player />
+      <Player currentTrack={currentTrack} />
     </div>
   );
 }
