@@ -9,7 +9,7 @@ function App() {
   const [currentTrack, setcurrentTrack] = useState(tracks[0]);
 
   return (
-    <div className="App">
+    <div className="app-wrapper">
       <Track currentTrack={currentTrack} />
       <Player />
     </div>
