@@ -1,16 +1,24 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faAngleLeft,
   faAngleRight,
   faPlay,
+  faPause,
 } from "@fortawesome/free-solid-svg-icons";
 
 const Player = ({ currentTrack }) => {
   const audioRef = useRef(null);
+  const [isPlaying, setIsPlaying] = useState(false);
 
   const handlePlay = () => {
-    audioRef.current.play();
+    if (!isPlaying) {
+      audioRef.current.play();
+      setIsPlaying(true);
+    } else {
+      audioRef.current.pause();
+      setIsPlaying(false);
+    }
   };
 
   return (
@@ -25,7 +33,7 @@ const Player = ({ currentTrack }) => {
         <FontAwesomeIcon
           onClick={handlePlay}
           className="play"
-          icon={faPlay}
+          icon={isPlaying ? faPause : faPlay}
           size="2x"
         />
         <FontAwesomeIcon
