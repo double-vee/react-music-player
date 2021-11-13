@@ -9,6 +9,10 @@ import {
 const Player = ({ currentTrack }) => {
   const audioRef = useRef(null);
 
+  const handlePlay = () => {
+    audioRef.current.play();
+  };
+
   return (
     <div className="player">
       <div className="time-control">
@@ -18,7 +22,12 @@ const Player = ({ currentTrack }) => {
       </div>
       <div className="play-control">
         <FontAwesomeIcon className="skip-back" icon={faAngleLeft} size="2x" />
-        <FontAwesomeIcon className="play" icon={faPlay} size="2x" />
+        <FontAwesomeIcon
+          onClick={handlePlay}
+          className="play"
+          icon={faPlay}
+          size="2x"
+        />
         <FontAwesomeIcon
           className="skip-forward"
           icon={faAngleRight}
