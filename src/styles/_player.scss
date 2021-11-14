@@ -10,13 +10,15 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 
   input {
     width: 100%;
-    padding: 1rem;
+    padding: 1rem 0;
   }
 
   p {
+    min-width: 4rem;
     padding: 1rem;
     font-size: 0.85rem;
     font-weight: 300;
