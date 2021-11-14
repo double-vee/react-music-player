@@ -11,8 +11,8 @@ const Player = ({ currentTrack }) => {
   const audioRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [timeInfo, setTimeInfo] = useState({
-    currentTime: null,
-    duration: null,
+    currentTime: 0,
+    duration: 0,
   });
 
   const handlePlay = () => {
