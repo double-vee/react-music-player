@@ -31,12 +31,18 @@ const Player = ({ currentTrack }) => {
     setTimeInfo({ ...timeInfo, currentTime: current, duration });
   };
 
+  const getTime = (time) => {
+    return (
+      Math.floor(time / 60) + ":" + ("0" + Math.floor(time % 60)).slice(-2)
+    );
+  };
+
   return (
     <div className="player">
       <div className="time-control">
-        <p>Start time</p>
+        <p>{getTime(timeInfo.currentTime)}</p>
         <input type="range" />
-        <p>End time</p>
+        <p>{getTime(timeInfo.duration)}</p>
       </div>
       <div className="play-control">
         <FontAwesomeIcon className="skip-back" icon={faAngleLeft} size="2x" />
