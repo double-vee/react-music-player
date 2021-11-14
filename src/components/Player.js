@@ -10,6 +10,10 @@ import {
 const Player = ({ currentTrack }) => {
   const audioRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [timeInfo, setTimeInfo] = useState({
+    currentTime: null,
+    duration: null,
+  });
 
   const handlePlay = () => {
     if (!isPlaying) {
@@ -19,6 +23,12 @@ const Player = ({ currentTrack }) => {
       audioRef.current.pause();
       setIsPlaying(false);
     }
+  };
+
+  const handleTimeUpdate = (e) => {
+    const current = e.target.currentTime;
+    const duration = e.target.duration;
+    setTimeInfo({ ...timeInfo, currentTime: current, duration });
   };
 
   return (
@@ -42,7 +52,11 @@ const Player = ({ currentTrack }) => {
           size="2x"
         />
       </div>
-      <audio ref={audioRef} src={currentTrack.audio}></audio>
+      <audio
+        onTimeUpdate={handleTimeUpdate}
+        ref={audioRef}
+        src={currentTrack.audio}
+      ></audio>
     </div>
   );
 };
