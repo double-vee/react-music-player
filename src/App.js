@@ -3,6 +3,7 @@ import "./styles/app.scss";
 import data from "./data";
 import Player from "./components/Player";
 import Track from "./components/Track";
+import Library from "./components/Library";
 
 function App() {
   const [tracks, setTracks] = useState(data());
@@ -12,6 +13,7 @@ function App() {
     <div className="app-wrapper">
       <Track currentTrack={currentTrack} />
       <Player currentTrack={currentTrack} />
+      <Library tracks={tracks} />
     </div>
   );
 }
