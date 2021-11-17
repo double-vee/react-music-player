@@ -13,7 +13,7 @@ function App() {
     <div className="app-wrapper">
       <Track currentTrack={currentTrack} />
       <Player currentTrack={currentTrack} />
-      <Library tracks={tracks} />
+      <Library tracks={tracks} setcurrentTrack={setcurrentTrack} />
     </div>
   );
 }
